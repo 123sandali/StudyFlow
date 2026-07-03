@@ -1,0 +1,229 @@
+.dashboardPage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.dashboardSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dashboardSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboardSectionTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* User card */
+
+.userCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 24px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+
+  background-color: #eff6ff;
+}
+
+.userCardContent h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.userCardContent p {
+  margin: 8px 0 0;
+  color: #475569;
+}
+
+.userCardBadge {
+  display: grid;
+  place-items: center;
+
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: white;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Statistics */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-width: 0;
+  padding: 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background-color: white;
+}
+
+.statCard span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.statCard strong {
+  color: #0f172a;
+  font-size: 28px;
+}
+
+/* Course cards */
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.courseCard {
+  padding: 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background-color: white;
+}
+
+.courseCardCode {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.courseCardTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.courseCardSemester {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Task cards */
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 16px 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background-color: white;
+}
+
+.taskCardInfo {
+  min-width: 0;
+}
+
+.taskCardTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 15px;
+}
+
+.taskCardMeta {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.taskPriority {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coursesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .userCard {
+    align-items: flex-start;
+  }
+
+  .coursesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .userCard {
+    padding: 18px;
+  }
+
+  .userCardContent h1 {
+    font-size: 20px;
+  }
+
+  .taskCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
