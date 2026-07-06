@@ -1,11 +1,17 @@
+import '../dashboard.css'
+
 function TaskCard({title, course, dueDate, priority}) {
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>Course: {course}</p>
-      <p>Due Date: {dueDate}</p>
-      <p>Priority: {priority}</p>
-    </div>
+    <article className="taskCard">
+      <div className="taskCardInfo">
+        <h3 className="taskCardTitle">{title}</h3>
+        <p className="taskCardMeta">
+          Course: {course} • Due: {dueDate}
+        </p>
+      </div>
+
+      <span className={`taskPriority priority${priority}`}>{priority}</span>
+    </article>
   )
 }
 

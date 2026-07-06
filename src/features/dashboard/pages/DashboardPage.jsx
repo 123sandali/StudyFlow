@@ -1,3 +1,5 @@
+import '../dashboard.css'
+
 import CourseCard from '../components/CourseCard';
 import TaskCard from '../components/TaskCard';
 import StatCard from '../components/StatCard';
@@ -38,9 +40,12 @@ function DashboardPage() {
   return (
     <div className="dashboardPage">
       <section>
-        {courseData.map((course)=>(
-            <CourseCard key={course.code} code={course.code} title={course.name} semester={course.semester} />
-        ))}
+        <h2>User Profile</h2>
+        <div className="userProfile">
+          <h3>{userData.name}</h3>
+          <p>{userData.programme}</p>
+          <p>{userData.university}</p>
+        </div>
       </section>
 
       <section>

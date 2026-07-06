@@ -1,3 +1,5 @@
+import '../dashboard.css'
+
 function UserCard({name,programme,university}) {
   return (
     <>

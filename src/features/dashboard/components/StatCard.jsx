@@ -1,3 +1,5 @@
+import '../dashboard.css'
+
 function StatCard({title,value}) {
   return (
      <article className="statCard">
