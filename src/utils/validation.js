@@ -68,3 +68,17 @@ export function validateDate(value) {
 
   return null;
 }
+
+export function validateEmail(value) {
+  if (!value || value.trim() === '') {
+    return null;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(value.trim())) {
+    return 'Please enter a valid email address.';
+  }
+
+  return null;
+}

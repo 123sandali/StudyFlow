@@ -79,3 +79,38 @@
     grid-column: auto;
   }
 }
+.classContextDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 14px;
+
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.classContextLabel {
+  margin-bottom: 4px;
+  color: var(--color-muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.classContextName {
+  color: var(--color-text);
+  font-size: 15px;
+}
+
+.classContextMeta {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.classContextError {
+  margin: 0;
+  color: var(--color-danger);
+}
