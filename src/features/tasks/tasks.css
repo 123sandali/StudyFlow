@@ -1,0 +1,261 @@
+.tasksPage {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.tasksPageIntro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tasksPageTitle {
+  margin: 0;
+  color: var(--color-text, #16241f);
+  font-size: 28px;
+  font-weight: 750;
+}
+
+.tasksPageDescription {
+  margin: 7px 0 0;
+  color: var(--color-muted, #64748b);
+  line-height: 1.6;
+}
+
+.taskStats {
+  display: flex;
+  gap: 10px;
+}
+
+.taskStat {
+  min-width: 88px;
+  padding: 11px 14px;
+
+  text-align: center;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #d9dfd3);
+  border-radius: var(--radius-md, 10px);
+}
+
+.taskStatValue {
+  display: block;
+  color: var(--color-text, #16241f);
+  font-size: 21px;
+}
+
+.taskStatLabel {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-muted, #64748b);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tasksPageLayout {
+  display: grid;
+  grid-template-columns: minmax(300px, 390px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.taskListPanel {
+  min-width: 0;
+  padding: 22px;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #d9dfd3);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(
+    --shadow-soft,
+    0 8px 24px rgba(15, 23, 42, 0.06)
+  );
+}
+
+.taskListHeader {
+  margin-bottom: 16px;
+}
+
+.taskListHeader h2 {
+  margin: 0;
+  color: var(--color-text, #16241f);
+  font-size: 20px;
+}
+
+.taskListHeader p {
+  margin: 5px 0 0;
+  color: var(--color-muted, #64748b);
+  font-size: 13px;
+}
+
+.taskManagementList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.taskManagementCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 15px;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #d9dfd3);
+  border-radius: var(--radius-md, 10px);
+
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.taskManagementCard:hover {
+  transform: translateY(-1px);
+  border-color: #b8c2b9;
+}
+
+.taskManagementCardCompleted {
+  background: #f7f9f5;
+}
+
+.taskManagementMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.taskCheckbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+
+  accent-color: var(--color-primary, #33544a);
+  cursor: pointer;
+}
+
+.taskManagementContent {
+  min-width: 0;
+}
+
+.taskManagementTitle {
+  margin: 0;
+  overflow-wrap: anywhere;
+
+  color: var(--color-text, #16241f);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.taskManagementTitleCompleted {
+  color: var(--color-muted, #8b978e);
+  text-decoration: line-through;
+}
+
+.taskManagementMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 7px;
+  color: var(--color-muted, #64748b);
+  font-size: 12px;
+}
+
+.taskPriorityBadge {
+  padding: 3px 8px;
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.taskPriorityHigh {
+  color: #b23a22;
+  background: #fbeae4;
+}
+
+.taskPriorityMedium {
+  color: #8a641c;
+  background: #f7edd9;
+}
+
+.taskPriorityLow {
+  color: #33538f;
+  background: #e7ecf7;
+}
+
+.taskDeleteButton {
+  padding: 7px 10px;
+
+  color: var(--color-danger, #b23a22);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+
+  background: transparent;
+  border: 1px solid #ebc7bb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.taskDeleteButton:hover {
+  background: var(--color-danger-soft, #fbeae4);
+}
+
+.taskEmptyState {
+  padding: 56px 20px;
+  text-align: center;
+}
+
+.taskEmptyState h3 {
+  margin: 0;
+  color: var(--color-text, #16241f);
+}
+
+.taskEmptyState p {
+  margin: 7px 0 0;
+  color: var(--color-muted, #64748b);
+}
+
+@media (max-width: 950px) {
+  .tasksPageLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .tasksPageIntro {
+    flex-direction: column;
+  }
+
+  .taskStats {
+    width: 100%;
+  }
+
+  .taskStat {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .taskListPanel {
+    padding: 16px;
+  }
+
+  .taskManagementCard {
+    align-items: flex-start;
+  }
+
+  .taskDeleteButton {
+    flex-shrink: 0;
+  }
+}

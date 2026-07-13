@@ -1,0 +1,81 @@
+.practicePage {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.practiceIntro h1 {
+  margin: 0;
+  color: var(--color-text, #16241f);
+  font-size: 28px;
+}
+
+.practiceIntro p {
+  max-width: 720px;
+  margin: 7px 0 0;
+  color: var(--color-muted, #64748b);
+  line-height: 1.6;
+}
+
+.practiceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.practiceCard {
+  padding: 20px;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #d9dfd3);
+  border-radius: var(--radius-lg, 16px);
+}
+
+.practiceCardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.practiceCardHeader h2 {
+  margin: 0;
+  color: var(--color-text, #16241f);
+  font-size: 19px;
+}
+
+.practiceTag {
+  padding: 3px 8px;
+
+  color: #5c6b1e;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  background: #eef1dc;
+  border-radius: 999px;
+}
+
+.practiceCardText {
+  margin: 8px 0 18px;
+  color: var(--color-muted, #64748b);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.practiceFormSection {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 800px) {
+  .practiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .practiceFormSection {
+    grid-column: auto;
+  }
+}

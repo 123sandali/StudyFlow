@@ -9,7 +9,7 @@ import ResourcesPage from "./features/resources/pages/ResourcesPage";
 
 function App() {
 
-  const [activePage, setActivePage] = useState("resource");
+  const [activePage, setActivePage] = useState("dashboard");
 
   const pages = {
     dashboard : {

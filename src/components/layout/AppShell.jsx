@@ -1,22 +1,23 @@
-import '../../styles/layout.css'
-import Sidebar from './Sidebar'
-import TopBar from './TopBar'
+import Sidebar from './Sidebar';
+import TopBar from './TopBar';
 
-
-function AppShell({title,children}) {
+export default function AppShell({
+  children,
+  title = 'Dashboard',
+}) {
   return (
     <div className="appShell">
-    <aside className="sideBar">
+      <aside className="sideBar">
         <Sidebar />
-    </aside>
-    <div className="mainContent">
-    <header className="topBar">
-      <TopBar title={title} />
-    </header>
-    <main className="pageContent">{children}</main>    
-    </div>
-    </div>
-  )
-}
+      </aside>
 
-export default AppShell
+      <div className="mainContent">
+        <header className="topBar">
+          <TopBar title={title} />
+        </header>
+
+        <main className="pageContent">{children}</main>
+      </div>
+    </div>
+  );
+}
