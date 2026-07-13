@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import {
   useEffect,
   useMemo,
@@ -153,7 +154,13 @@ export default function TasksPage() {
             source array.
           </p>
         </div>
-
+        <div className="tasksPageHeaderActions">
+        <Link
+          className="taskNewRouteLink"
+          to="/tasks/new"
+        >
+          New routed task
+        </Link>
         <div className="taskStats">
           <div className="taskStat">
             <strong className="taskStatValue">
@@ -282,6 +289,7 @@ export default function TasksPage() {
             </div>
           )}
         </div>
+      </div>
       </div>
     </section>
   );

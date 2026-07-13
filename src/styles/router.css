@@ -1,0 +1,217 @@
+.routeMessagePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 65vh;
+  padding: 24px;
+}
+
+.routeMessageCard {
+  width: min(520px, 100%);
+  padding: 38px;
+
+  text-align: center;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.routeStatusCode {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.routeMessageCard h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 28px;
+}
+
+.routeMessageCard p {
+  margin: 12px 0 24px;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.routePrimaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+  padding: 9px 16px;
+
+  color: #ffffff;
+  font-weight: 650;
+  text-decoration: none;
+
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.manualRouter {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.manualRouterNavigation {
+  display: flex;
+  gap: 8px;
+}
+
+.manualRouterButton {
+  min-height: 36px;
+  padding: 7px 11px;
+
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.manualRouterButtonActive {
+  color: #ffffff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.manualRouterContent {
+  min-height: 120px;
+  padding: 15px;
+
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.manualRouterContent h3 {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.manualRouterContent p {
+  margin: 7px 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.taskRoutePage {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.taskRouteHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.taskRouteHeader h1 {
+  margin: 4px 0 0;
+  color: var(--color-text);
+  font-size: 28px;
+}
+
+.taskRouteHeader p {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+}
+
+.taskRouteEyebrow {
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.taskRouteBackLink {
+  flex-shrink: 0;
+
+  padding: 8px 12px;
+
+  color: var(--color-primary);
+  font-weight: 650;
+  text-decoration: none;
+
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-md);
+}
+
+.taskRouteForm {
+  max-width: 650px;
+}
+
+.taskCancelLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.taskDetailCard {
+  padding: 24px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.taskDetailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.taskDetailRow:last-child {
+  border-bottom: 0;
+}
+
+.taskDetailRow span {
+  color: var(--color-muted);
+}
+
+.taskDetailRow strong {
+  color: var(--color-text);
+  text-transform: capitalize;
+}
+
+@media (max-width: 650px) {
+  .taskRouteHeader {
+    flex-direction: column;
+  }
+
+  .taskDetailRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

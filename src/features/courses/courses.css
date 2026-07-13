@@ -1,0 +1,236 @@
+.coursesPage,
+.courseDetailPage {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.coursesHeader h1,
+.courseDetailHeader h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 28px;
+}
+
+.coursesHeader p,
+.courseDetailHeader p {
+  margin: 7px 0 0;
+  color: var(--color-muted);
+}
+
+.courseRouteGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+  gap: 18px;
+}
+
+.courseRouteCard,
+.courseNestedCard {
+  padding: 22px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.courseRouteCode {
+  display: inline-flex;
+  padding: 4px 8px;
+
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+
+  background: var(--color-primary-soft);
+  border-radius: 999px;
+}
+
+.courseRouteCard h2 {
+  margin: 13px 0 0;
+  color: var(--color-text);
+  font-size: 19px;
+}
+
+.courseRouteSemester {
+  margin: 5px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.courseRouteDescription {
+  min-height: 66px;
+  margin: 14px 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.courseProgressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.courseProgressTrack {
+  height: 7px;
+  overflow: hidden;
+
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+.courseProgressValue {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: inherit;
+}
+
+.courseRouteLink {
+  display: inline-flex;
+  margin-top: 18px;
+
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.courseDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.courseBackLink {
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.courseTabs {
+  display: flex;
+  gap: 7px;
+
+  padding: 7px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.courseTab {
+  padding: 8px 13px;
+
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+
+  border-radius: 8px;
+}
+
+.courseTabActive {
+  color: #ffffff;
+  background: var(--color-primary);
+}
+
+.courseNestedCard h2 {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.courseNestedCard > p {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.courseOverviewStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.courseOverviewStats div {
+  padding: 16px;
+  text-align: center;
+
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.courseOverviewStats strong,
+.courseOverviewStats span {
+  display: block;
+}
+
+.courseOverviewStats strong {
+  color: var(--color-text);
+  font-size: 22px;
+}
+
+.courseOverviewStats span {
+  margin-top: 4px;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+.courseNestedList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 0;
+  margin: 18px 0 0;
+
+  list-style: none;
+}
+
+.courseNestedList li {
+  padding: 12px 14px;
+
+  color: var(--color-text);
+
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.courseMissing {
+  padding: 30px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 900px) {
+  .courseRouteGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .courseDetailHeader {
+    flex-direction: column;
+  }
+
+  .courseTabs {
+    overflow-x: auto;
+  }
+
+  .courseOverviewStats {
+    grid-template-columns: 1fr;
+  }
+}

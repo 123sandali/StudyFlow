@@ -398,3 +398,31 @@ body {
   }
 }
 
+.sidebarLink {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px 12px;
+
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+
+  border-radius: var(--radius-md);
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
+}
+
+.sidebarLink:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.sidebarLinkActive {
+  color: var(--color-primary);
+  font-weight: 700;
+  background: var(--color-primary-soft);
+}

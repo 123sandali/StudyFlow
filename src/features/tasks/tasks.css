@@ -259,3 +259,65 @@
     flex-shrink: 0;
   }
 }
+.tasksPageHeaderActions {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskNewRouteLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 8px 14px;
+
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.taskTitleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.taskTitleLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.taskCardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskViewLink {
+  padding: 7px 10px;
+
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+
+  background: var(--color-primary-soft);
+  border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+  .tasksPageHeaderActions {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .taskNewRouteLink {
+    width: 100%;
+  }
+}
