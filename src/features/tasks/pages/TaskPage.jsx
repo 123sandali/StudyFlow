@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
+import { useArray } from '../../../hooks/useArray';
+import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard';
 import './tasks.css';
@@ -21,34 +23,52 @@ const initialTasks = [
 ];
 
 export default function TasksPage() {
-  const [tasks, setTasks] = useState(initialTasks);
+  const taskStorage = useLocalStorage('studyflow_tasks', initialTasks);
+
+  const {
+    array: tasks,
+    push,
+    remove,
+    update,
+  } = useArray(initialTasks, taskStorage);
 
   function addTask(newTask) {
-    setTasks((prevTasks) => [
-      ...prevTasks,
-      {
-        id: Date.now(),
-        ...newTask,
-        completed: false,
-      },
-    ]);
+    push({
+      id: Date.now(),
+      ...newTask,
+      completed: false,
+      createdAt: new Date().toISOString(),
+    });
   }
 
   function toggleTask(id) {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
+    const selectedTask = tasks.find((task) => task.id === id);
+
+    if (!selectedTask) {
+      return;
+    }
+
+    update(id, {
+      completed: !selectedTask.completed,
+      completedAt: selectedTask.completed ? null : new Date().toISOString(),
+    });
   }
 
   function deleteTask(id) {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    remove(id);
   }
 
+  const completedTasks = useMemo(
+    () => tasks.filter((task) => task.completed),
+    [tasks]
+  );
+
+  const activeTasks = useMemo(
+    () => tasks.filter((task) => !task.completed),
+    [tasks]
+  );
+
   const totalTasks = tasks.length;
-  const completedTasks = tasks.filter((task) => task.completed).length;
-  const activeTasks = totalTasks - completedTasks;
 
   return (
     <div className="tasksPage">
@@ -57,8 +77,8 @@ export default function TasksPage() {
           <p className="tasksEyebrow">Task manager</p>
           <h1 className="tasksTitle">Plan your study work</h1>
           <p className="tasksSubtitle">
-            This page uses array state, controlled forms, props, map, filter,
-            and conditional rendering.
+            This page now uses custom hooks: useArray for immutable task
+            operations and useLocalStorage for browser persistence.
           </p>
         </div>
       </section>
@@ -71,12 +91,12 @@ export default function TasksPage() {
 
         <div className="taskSummaryCard card">
           <span>Active</span>
-          <strong>{activeTasks}</strong>
+          <strong>{activeTasks.length}</strong>
         </div>
 
         <div className="taskSummaryCard card">
           <span>Completed</span>
-          <strong>{completedTasks}</strong>
+          <strong>{completedTasks.length}</strong>
         </div>
       </section>
 

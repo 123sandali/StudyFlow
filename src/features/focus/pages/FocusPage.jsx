@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useFocusTimer } from '../../../hooks/useFocusTimer';
 import './focus.css';
 
 function formatTime(totalSeconds) {
@@ -14,20 +15,10 @@ function formatTime(totalSeconds) {
 export default function FocusPage() {
   const [name, setName] = useState('');
   const [count, setCount] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [running, setRunning] = useState(false);
+
+  const { seconds, running, toggle, reset } = useFocusTimer(0);
 
   const displayName = name.trim() || 'Student';
-
-  useEffect(() => {
-    if (!running) return;
-
-    const id = setInterval(() => {
-      setSeconds((currentSeconds) => currentSeconds + 1);
-    }, 1000);
-
-    return () => clearInterval(id);
-  }, [running]);
 
   useEffect(() => {
     document.title = running
@@ -35,19 +26,9 @@ export default function FocusPage() {
       : 'StudyFlow';
   }, [running, seconds]);
 
-  function handleStartPause() {
-    setRunning((currentRunning) => !currentRunning);
-  }
-
-  function handleResetTimer() {
-    setRunning(false);
-    setSeconds(0);
-  }
-
   function handleCompleteSession() {
     setCount((currentCount) => currentCount + 1);
-    setRunning(false);
-    setSeconds(0);
+    reset();
   }
 
   return (
@@ -57,8 +38,8 @@ export default function FocusPage() {
           <p className="focusLabel">Focus timer</p>
           <h1 className="focusTitle">Stay focused, {displayName}</h1>
           <p className="focusDescription">
-            This page uses useState for local state and useEffect for timer
-            side effects, cleanup, and document title updates.
+            Timer state now comes from the useFocusTimer custom hook. The page
+            only renders UI and handles page-specific actions.
           </p>
         </div>
 
@@ -80,7 +61,7 @@ export default function FocusPage() {
             <button
               className="focusButton focusButtonPrimary"
               type="button"
-              onClick={handleStartPause}
+              onClick={toggle}
             >
               {running ? 'Pause' : 'Start'}
             </button>
@@ -88,7 +69,7 @@ export default function FocusPage() {
             <button
               className="focusButton focusButtonSecondary"
               type="button"
-              onClick={handleResetTimer}
+              onClick={reset}
             >
               Reset
             </button>
@@ -125,14 +106,13 @@ export default function FocusPage() {
           </div>
 
           <div className="focusCard card">
-            <p className="focusInputLabel">What to observe</p>
+            <p className="focusInputLabel">Custom hook responsibility</p>
 
             <ul className="focusList">
-              <li>Start the timer and watch seconds increase.</li>
-              <li>Check browser tab title while timer is running.</li>
-              <li>Pause and confirm timer stops.</li>
-              <li>Reset and confirm seconds return to 00:00.</li>
-              <li>StrictMode should not make the timer jump by 2.</li>
+              <li>useFocusTimer owns timer seconds.</li>
+              <li>useFocusTimer owns running/paused state.</li>
+              <li>useFocusTimer cleans the interval.</li>
+              <li>FocusPage only renders the feature UI.</li>
             </ul>
           </div>
         </div>

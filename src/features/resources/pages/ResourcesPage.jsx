@@ -1,54 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useFetch } from '../../../hooks/useFetch';
 import './resources.css';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/users';
 
 export default function ResourcesPage() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [reloadKey, setReloadKey] = useState(0);
-
-  useEffect(() => {
-    let ignore = false;
-
-    async function loadResources() {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch resources.');
-        }
-
-        const users = await response.json();
-
-        if (!ignore) {
-          setData(users);
-        }
-      } catch (err) {
-        if (!ignore) {
-          setError(err.message || 'Something went wrong.');
-        }
-      } finally {
-        if (!ignore) {
-          setLoading(false);
-        }
-      }
-    }
-
-    loadResources();
-
-    return () => {
-      ignore = true;
-    };
-  }, [reloadKey]);
-
-  function handleRetry() {
-    setReloadKey((currentKey) => currentKey + 1);
-  }
+  const {
+    data = [],
+    loading,
+    error,
+    refetch,
+  } = useFetch(API_URL, {
+    initialData: [],
+  });
 
   return (
     <div className="resourcesPage">
@@ -57,12 +20,16 @@ export default function ResourcesPage() {
           <p className="resourcesEyebrow">Resources</p>
           <h1 className="resourcesTitle">Public API resource directory</h1>
           <p className="resourcesSubtitle">
-            This page fetches demo users from a public API and renders loading,
-            error, and success states using useEffect.
+            This page now uses a reusable useFetch custom hook instead of
+            writing loading, error, and fetch logic directly inside the page.
           </p>
         </div>
 
-        <button className="resourcesRefreshButton" type="button" onClick={handleRetry}>
+        <button
+          className="resourcesRefreshButton"
+          type="button"
+          onClick={refetch}
+        >
           Refresh
         </button>
       </section>
@@ -79,7 +46,7 @@ export default function ResourcesPage() {
         <section className="resourcesError card">
           <h2>Could not load resources</h2>
           <p>{error}</p>
-          <button type="button" onClick={handleRetry}>
+          <button type="button" onClick={refetch}>
             Try again
           </button>
         </section>
