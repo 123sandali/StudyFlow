@@ -3,7 +3,7 @@ import Sidebar from './Sidebar'
 import TopBar from './TopBar'
 
 
-function AppShell({children}) {
+function AppShell({title,children}) {
   return (
     <div className="appShell">
     <aside className="sideBar">
@@ -11,9 +11,10 @@ function AppShell({children}) {
     </aside>
     <div className="mainContent">
     <header className="topBar">
-      <TopBar />
+      <TopBar title={title} />
     </header>
-    <main className="pageContent">{children}</main>    </div>
+    <main className="pageContent">{children}</main>    
+    </div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { PanelLeftClose } from 'lucide-react';
 import '../../styles/layout.css'
 
 
-function TopBar({title="Dashboard"}) {
+function TopBar({title}) {
   return (
 
       <div className="topBarInner">
